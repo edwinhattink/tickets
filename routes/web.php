@@ -11,15 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resources([
-	'events' => 'EventController',
-	'tickets' => 'TicketController',
-]);
+Route::group([
+	'middleware' => 'auth',
+], function () {
+	
+	Route::get('/', function () {
+		return view('home');
+	});
+	
+	Route::resources([
+		'events' => 'EventController',
+		'events.tickets' => 'TicketController',
+	]);
+	
+});

@@ -22,6 +22,8 @@ class CreateTicketsTable extends Migration
 			$table->unsignedInteger('event_id');
 			$table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
 			
+			$table->string('file');
+			
             $table->timestamps();
         });
     }
