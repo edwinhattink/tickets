@@ -1,10 +1,17 @@
+@if ($errors->any())
+    <div class="alert alert-danger">
+		@foreach ($errors->all() as $error)
+			<div>{{ $error }}</div>
+		@endforeach
+    </div>
+@endif
 <div class="form-group">
-	<label for="name">Name</label>
-	{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter event name', 'id' => 'name']) }}
+	<label for="ticket_type_id">Type</label>
+	{{ Form::select('ticket_type_id', $ticketTypes, null, ['class' => 'form-control', 'id' => 'ticket_type_id']) }}
 </div>
 <div class="form-group">
-	<label for="starts_at">Start date and time</label>
-	{{ Form::datetimeLocal('starts_at', null, ['class' => 'form-control', 'id' => 'starts_at']) }}
+	<label for="starts_at">File (PDF)</label>
+	{{ Form::file('file', ['class' => 'form-control', 'id' => 'starts_at']) }}
 </div>
 <div class="form-group">
 	<button type="submit" class="btn btn-primary">Save</button>

@@ -19,7 +19,7 @@
 
 						<div class="card-body">
 							<p class="card-text">
-								{{ $event->starts_at }}
+								{{ $event->starts_at->format('d-m-Y H:i') }}
 							</p>
 							<a href="{{ route('events.edit', $event) }}" class="card-link">Edit</a>
 							<a href="{{ route('events.tickets.index', $event) }}" class="card-link">Tickets</a>

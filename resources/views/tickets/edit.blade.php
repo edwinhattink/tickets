@@ -5,7 +5,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header">Create new event</div>
+					<div class="card-header">Edit {{ $event->name }}</div>
 					<div class="card-body">
 						{{ Form::model($event, ['route' => ['events.update', $event], 'method' => 'put']) }}
 						

@@ -1,3 +1,10 @@
+@if ($errors->any())
+    <div class="alert alert-danger">
+		@foreach ($errors->all() as $error)
+			<div>{{ $error }}</div>
+		@endforeach
+    </div>
+@endif
 <div class="form-group">
 	<label for="name">Name</label>
 	{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter event name', 'id' => 'name']) }}

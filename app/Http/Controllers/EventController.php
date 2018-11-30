@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -26,6 +27,7 @@ class EventController extends Controller
     public function create()
     {
 		$event = new Event();
+		$event->starts_at = new Carbon();
 		return view('events.create', compact('event'));
     }
 
@@ -78,7 +80,7 @@ class EventController extends Controller
 			'starts_at' => 'required|date',
 		]);
 		$event->fill($request->all());
-		$event->starts_at = new \Carbon\Carbon($request->starts_at);
+		$event->starts_at = new Carbon($request->starts_at);
 		$event->save();
 		return redirect()->route('events.show', $event)->withStatus('Event saved succesfully!');
     }
