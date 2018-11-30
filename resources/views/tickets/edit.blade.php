@@ -5,11 +5,13 @@
 		<div class="row justify-content-center">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header">Edit {{ $event->name }}</div>
+					<div class="card-header">Edit {{ $ticket->ticketType->name }} ticket for {{ $event->name }}</div>
 					<div class="card-body">
-						{{ Form::model($event, ['route' => ['events.update', $event], 'method' => 'put']) }}
+						{{ Form::model($ticket, ['route' => ['events.tickets.update', $event, $ticket], 'method' => 'put']) }}
 						
-							@include('events.form')
+							@include('tickets.form')
+							
+							{{ Form::hidden('file') }}
 						
 						{{ Form::close() }}
 					</div>

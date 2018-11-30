@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relation;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Collective\Html\Eloquent\FormAccessible;
 use Carbon\Carbon;
 

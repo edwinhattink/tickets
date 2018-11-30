@@ -10,8 +10,14 @@
 	{{ Form::select('ticket_type_id', $ticketTypes, null, ['class' => 'form-control', 'id' => 'ticket_type_id']) }}
 </div>
 <div class="form-group">
-	<label for="starts_at">File (PDF)</label>
-	{{ Form::file('file', ['class' => 'form-control', 'id' => 'starts_at']) }}
+	<label for="starts_at">
+			File (PDF)
+			@if ($ticket->file)
+				<small>Already has a file</small>
+			@endif
+	</label>
+	{{ Form::file('ticket', ['class' => 'form-control-file', 'id' => 'starts_at']) }}
+	
 </div>
 <div class="form-group">
 	<button type="submit" class="btn btn-primary">Save</button>

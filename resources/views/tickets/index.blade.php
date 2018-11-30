@@ -18,13 +18,13 @@
 			</div>
 			@foreach($tickets as $ticket)
 				<div class="col-md-4">
-					<div class="card">
-						
+					<div class="card">					
 
 						<div class="card-body">
 							<p class="card-text">
-								{{ $event->starts_at->format('d-m-Y H:i') }}
+								{{ $ticket->ticketType->name }}
 							</p>
+							<a href="{{ route('events.tickets.download', [$event, $ticket]) }}" class="card-link">Download</a>
 							<a href="{{ route('events.tickets.edit', [$event, $ticket]) }}" class="card-link">Edit</a>
 						</div>
 					</div>

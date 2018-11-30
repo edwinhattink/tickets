@@ -28,4 +28,9 @@ Route::group([
 		'events.tickets' => 'TicketController',
 	]);
 	
+	Route::get('events/{event}/tickets/{ticket}/download', [
+		'as' => 'events.tickets.download',
+		'uses' => 'TicketController@download',
+	]);
+	
 });
